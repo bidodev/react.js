@@ -6,23 +6,24 @@ class App extends React.Component {
     super();
 
     this.state = {
-      string: "Bido",
+      books: [],
     };
+  }
+
+  async componentDidMount() {
+    const response = await fetch(
+      "https://www.googleapis.com/books/v1/volumes?q=harry+potter+inauthor:rowling&maxResults=10&langRestrict=pt"
+    );
+    const data = await response.json();
+    this.setState({ books: data.items });
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>Hello {this.state.string}</h1>
-          <button
-            onClick={() => {
-              this.setState({ string: "Andrei" });
-            }}
-          >
-            Change the Text
-          </button>
-        </header>
+        {this.state.books.map(book => (
+          <h1 key={book.id}>{book.volumeInfo.title}</h1>
+        ))}
       </div>
     );
   }
