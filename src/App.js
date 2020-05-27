@@ -1,24 +1,28 @@
 import React from "react";
-import { Component } from "react";
 import "./App.css";
 
-class App extends Component {
+class App extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      string: "Hello Simona",
+      dogs: [],
     };
   }
-  change = () => {};
+  async componentDidMount() {
+    const data = await fetch("https://dog.ceo/api/breed/hound/images/random/6");
+    const res = await data.json();
+    this.setState({ dogs: res.message });
+  }
 
   render() {
     return (
       <div className="App">
-        <h1>{this.state.string}</h1>
-        <button onClick={() => this.setState({ string: "How u doing?" })}>
-          Change Text
-        </button>
+        {this.state.dogs.map(book => (
+          <figure>
+            <img src={`${book}`} alt="" />
+          </figure>
+        ))}
       </div>
     );
   }
