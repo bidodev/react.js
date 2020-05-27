@@ -18,9 +18,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {this.state.dogs.map(book => (
+        {this.state.dogs.map(dog => (
           <figure>
-            <img src={`${book}`} alt="" />
+            <img src={`${dog}`} alt="" />
           </figure>
         ))}
       </div>
