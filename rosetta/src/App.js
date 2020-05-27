@@ -1,32 +1,26 @@
 import React from "react";
+import { Component } from "react";
 import "./App.css";
 
-class App extends React.Component {
+class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      books: [],
+      string: "Hello Simona",
     };
   }
-
-  async componentDidMount() {
-    const response = await fetch(
-      "https://www.googleapis.com/books/v1/volumes?q=harry+potter+inauthor:rowling&maxResults=10&langRestrict=pt"
-    );
-    const data = await response.json();
-    this.setState({ books: data.items });
-  }
+  change = () => {};
 
   render() {
     return (
       <div className="App">
-        {this.state.books.map(book => (
-          <h1 key={book.id}>{book.volumeInfo.title}</h1>
-        ))}
+        <h1>{this.state.string}</h1>
+        <button onClick={() => this.setState({ string: "How u doing?" })}>
+          Change Text
+        </button>
       </div>
     );
   }
 }
-
 export default App;
