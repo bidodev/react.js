@@ -1,8 +1,9 @@
 import React from "react";
-import { DogCard } from "../dogs-card/dog.component.jsx";
+import { DogCard } from "../dog-card/dog.component.jsx";
 import "./dog-list.styles.scss";
 
 export const DogsList = props => {
+  console.log(props);
   return (
     <div className="dogs-list">
       {props.dogs.map(dog => (
