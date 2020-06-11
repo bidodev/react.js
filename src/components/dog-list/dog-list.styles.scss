@@ -1,9 +1,0 @@
-.dogs-list {
-  width: 85vw;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18vw, 1fr));
-  grid-template-rows: repeat(3, 30vh);
-
-  gap: 2rem;
-}
