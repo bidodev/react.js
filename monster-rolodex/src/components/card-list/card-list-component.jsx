@@ -1,8 +1,11 @@
 import React from 'react';
+import CardMonster from '../card-monster/card-monster-component';
 
-const CardList = (props) => {
-  const { monsters } = props;
-  return monsters.map((monster) => <h1 key={monster.id}>{monster.name}</h1>);
-};
-
+const CardList = (props) => (
+  <div className="card-list">
+    {props.monsters.map(monster => (
+      <CardMonster monster={monster} />
+    ))}
+  </div>
+)
 export default CardList;
