@@ -1,10 +1,10 @@
 import React from 'react';
-import CardMonster from '../card-monster/card-monster-component';
+import Card from '../card/card-component';
 
 const CardList = (props) => (
   <div className="card-list">
     {props.monsters.map(monster => (
-      <CardMonster monster={monster} />
+      <Card key={monster.id} monster={monster} />
     ))}
   </div>
 )
